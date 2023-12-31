@@ -29,10 +29,10 @@ export class UserController {
   }
 
   @Get(':id')
-  async getById(@Param() id: number, @Res() res: Response) {
-    const user = await this.findUserByIdUseCase.execute(id);
+  async getById(@Param() param: any, @Res() res: Response) {
+    const user = await this.findUserByIdUseCase.execute(param.id);
     return res.status(HttpStatus.FOUND).json({
-      message: 'Usuario: ',
+      message: 'Usuario:',
       user,
     });
   }
